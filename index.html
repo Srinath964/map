@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+</head>
+<body>
+
+  <div class="top">
+
+    <div class="menu">     
+      <img id="menuButton" src="menu_24dp_1F1F1_FILL0_wght400_GRAD0_opsz24.png" alt="">
+        <div id="menu" style="display: none; position: absolute; background: rgb(240, 239, 239); padding: 10px;">
+          <div class="gap">
+            <h4 class="fromto" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: 500;">From</h4>
+            <input type="text" id="fromlocation">
+          </div>
+          <div>
+            <img onclick="swapInputs()" class="swap" src="swap_vert_24dp_1F1F1_FILL0_wght400_GRAD0_opsz24.png" alt="">
+          </div>
+          <div class="gap">
+            <h4 class="fromto" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-weight: 500;">To</h4>
+            <input type="text" id="tolocation">
+          </div>
+          <button class="searchbutton" id="searchbtn">Search</button>
+        </div>
+    </div>
+
+      <div class="search-main">
+        <input class="searchbox" type="text" placeholder="Enter your location" id="searchbar">
+        <img class="searchicon" src="search_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" alt="" id="searchicon">
+      </div>
+
+  </div>
+
+
+<div id="pushing">
+  <iframe class="push" width="1360" height="500" src="https://maps.google.com/maps?q=${placepush.value},&amp;z=15&amp;output=embed"></iframe>
+</div>
+
+  <script>
+      const menuButton = document.getElementById('menuButton');
+const menu = document.getElementById('menu');
+
+// Toggle menu on button click
+menuButton.addEventListener('click', (event) => {
+  event.stopPropagation(); // Prevent click from bubbling up
+  menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+});
+
+// Hide menu when clicking outside
+document.addEventListener('click', (event) => {
+  if (!menu.contains(event.target) && event.target !== menuButton) {
+    menu.style.display = 'none';
+  }
+});
+
+
+function swapInputs() {
+  const inputs = document.querySelectorAll('#menu input[type="text"]');
+    if (inputs.length >= 2) {
+      const temp = inputs[0].value;
+      inputs[0].value = inputs[1].value;
+      inputs[1].value = temp;
+    }
+  }
+
+let searchbar = document.getElementById("searchbar")
+let searchicon = document.getElementById("searchicon")
+let fromlocation = document.getElementById("fromlocation")
+let tolocation = document.getElementById("tolocation")
+let searchbtn = document.getElementById("searchbtn")
+let pushing = document.getElementById("pushing")
+
+// searchbtn.addEventListener("click",()=>{
+//   pushing.innerHTML = `<iframe width="700" height="300" src="https://maps.google.com/maps?q=${searchbar.value},&amp;z=15&amp;output=embed"></iframe>`
+// })
+   
+searchicon.addEventListener("click",()=>{
+  pushing.innerHTML = `<iframe width="1360" height="500" src="https://maps.google.com/maps?q=${searchbar.value},&amp;z=15&amp;output=embed"></iframe>`
+})
+searchbtn.addEventListener("click",()=>{
+  pushing.innerHTML = `<iframe width="1360" height="500" src="https://maps.google.com/maps?saddr=${fromlocation.value}&daddr=${tolocation.value}&output=embed"></iframe>`
+})  
+
+  </script>
+
+
+</body>
+</html>

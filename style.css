@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.top{
+    margin: 10px 0px;
+    padding-left: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+.searchbox{
+    height: 40px;
+    width: 480px;
+    background-color: transparent;
+    border:1px solid;
+    border-radius: 50px;
+    padding-left: 20px;
+    
+}
+.searchicon{  
+    cursor: pointer;
+    position: relative;
+    left: -40px;    
+    top: 10px;
+}
+.search-main{
+    padding: 10px 400px;
+    /* padding-left: 300px; */
+    /* width: 100%; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px; */
+    /* position: relative;
+    left: 300px; */
+}
+.menu{
+    /* position: absolute;
+    top: 30px;
+    left: 20px; */
+    cursor: pointer; 
+}
+.swap{
+    position: relative;
+    top: 20px;
+    padding:10px 80px;
+    cursor: pointer;
+} 
+.searchbutton{
+    padding: 5px 10px;
+    margin: 10px 60px;
+    cursor: pointer;
+}
+.fromto{
+    padding: 10px 0px;
+}
+.push{
+    display: block;
+    width: 100%;
+}
+@media screen and (max-width: 800px){
+      
+    .searchbox{
+        height: 30px;
+        width: 280px;
+    }    
+    .push{
+        display: block;
+        width: 100%;
+    }
+    .top{
+        display: block;
+        width: 100%;
+    }
+    .search-main{
+        width: 100%;
+        display: block;
+        padding: 10px 0px;
+    }
+}
+@media screen and (max-width: 500px){
+    .searchbox{
+        height: 30px;
+        width: 280px;
+    }    
+    .push{
+        display: block;
+        width: 100%;
+        background-position: center center;
+        background-size: contain;
+        box-sizing: border-box;
+    }
+    .top{
+        display: block;
+        width: 100%;
+    }
+    .search-main{
+        width: 100%;
+        display: block;
+        padding: 10px 0px;
+    }
+}
+
+    
